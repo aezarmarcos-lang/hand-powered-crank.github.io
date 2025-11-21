@@ -84,20 +84,32 @@
     <!-- 🔊 NEW CIRCULAR BUTTON -->
     <button id="soundToggle">🔇</button>
 
-    <script>
+    <button id="soundToggle">🔇</button>
 
-      const music = document.getElementById("bgMusic");
-      const btn = document.getElementById("soundToggle");
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("soundToggle");
 
-      btn.addEventListener("click", function () {
-        music.muted = !music.muted;
-        btn.textContent = music.muted ? "🔇" : "🔊";
+// Initialize button text based on current mute state
+btn.textContent = music.muted ? "🔇" : "🔊";
 
-      });
-    </script>
+btn.addEventListener("click", function () {
+  // Toggle mute
+  music.muted = !music.muted;
 
-            
+  // If unmuted, try to play audio (browsers may block autoplay if not triggered by user)
+  if (!music.muted) {
+    music.play().catch(err => {
+      console.log("Autoplay prevented:", err);
+      music.muted = true; // fallback to muted if play fails
+    });
+  }
 
+  // Update button icon
+  btn.textContent = music.muted ? "🔇" : "🔊";
+});
+</script>
+    
         <div class="page">
         <div class="hud">
           <div class="left" data-en="LEVEL 01 • XP 012/100" data-ja="レベル 01 • ケイケンチ 012/100">LEVEL 01 • XP 012/100</div>
@@ -180,6 +192,7 @@
     </script>
   </body>
 </html>
+
 
 
 
