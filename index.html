@@ -26,22 +26,29 @@
       }
 
       /* Base */
-      html,body{height:100%;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background:#071428;color:var(--text)}
-      /* Background image + subtle overlay (put only once, not duplicated inline) */
-      body{
-        background-image: var(--bg-img);
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-      }
-      body::before{
-        content:'';
-        position:fixed;
-        inset:0;
-        background:linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.48));
-        pointer-events:none;
-        z-index:0;
-      }
+     html {
+  height: 100%;
+  background: var(--bg-img) center/cover no-repeat fixed;
+}
+
+body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+/* Overlay gradient */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.48));
+  pointer-events: none;
+  z-index: 0;
+}
+
 
       /* -------------------------
          Layout & main panel
@@ -411,3 +418,4 @@
     </script>
   </body>
 </html>
+
