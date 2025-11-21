@@ -3,35 +3,151 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Side Area</title>
+    <meta name="description" content="Learn about the Hand Crank Power Generator, a student-made eco-friendly energy solution.">
+    <title>Side Area - Hand Crank Power Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#071428;color:#dbeeff}
-      .wrap{max-width:920px;margin:36px auto;padding:22px;background:linear-gradient(180deg,#071426,#0b1530);border-radius:10px;border:1px solid rgba(120,160,255,0.06)}
-      a.home{display:inline-block;margin-bottom:12px;color:#9be7ff;text-decoration:none;font-family:Orbitron, sans-serif}
-      h1{font-family:Orbitron, sans-serif;color:#9be7ff}
-      p{color:#cfeeff}
-      ul{color:#cfeeff; line-height:1.6;}
-      li{margin-bottom:8px;}
-      /* Floating back button */
-      .side-toggle{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:2200;background:linear-gradient(180deg,#0ea5ff,#0070b3);color:#fff;border-radius:28px;padding:10px 18px;box-shadow:0 8px 24px rgba(0,0,0,0.5);cursor:pointer;border:0;font-family:'Orbitron',sans-serif;text-decoration:none}
-      .side-toggle.small{min-width:64px;height:48px;display:flex;align-items:center;justify-content:center;font-size:16px}
-    
-     .row {
+      /* General Styles */
+      body {
+        margin: 0;
+        font-family: 'Arial', Helvetica, sans-serif;
+        background: #071428;
+        color: #dbeeff;
+        line-height: 1.8;
+      }
+
+      .wrap {
+        max-width: 1000px;
+        margin: 36px auto;
+        padding: 32px;
+        background: linear-gradient(180deg, #071426, #0b1530);
+        border-radius: 10px;
+        border: 1px solid rgba(120,160,255,0.06);
+      }
+
+      a.home {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: #9be7ff;
+        text-decoration: none;
+        font-family: 'Orbitron', sans-serif;
+        transition: color 0.3s;
+      }
+
+      a.home:hover {
+        color: #00f0ff;
+        text-decoration: underline;
+      }
+
+      h1, h2 {
+        font-family: 'Orbitron', sans-serif;
+        color: #9be7ff;
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        color: #cfeeff;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        color: #cfeeff;
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* Image Grid */
+      .row {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
+
       .column {
         flex: 1;
         min-width: 200px;
+      }
+
+      .column img {
+        border: 3px solid #cfeeff;
+        border-radius: 10px;
+        max-width: 100%;
+        display: block;
+      }
+
+      /* Floating Back Button */
+      .side-toggle {
+        position: fixed;
+        left: 50%;
+        bottom: 12px;
+        transform: translateX(-50%);
+        z-index: 2200;
+        background: linear-gradient(180deg,#0ea5ff,#0070b3);
+        color: #fff;
+        border-radius: 28px;
+        padding: 10px 18px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        cursor: pointer;
+        border: 0;
+        font-family:'Orbitron',sans-serif;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .side-toggle:hover {
+        transform: translateX(-50%) translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      }
+
+      .side-toggle.small {
+        min-width: 64px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+
+      /* Footer */
+      footer {
+        font-size: 13px;
+        color: #9fb6d1;
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .column {
+          min-width: 100%;
+        }
+
+        .side-toggle {
+          left: auto;
+          right: 12px;
+          transform: none;
+        }
       }
     </style>
   </head>
   <body>
     <div class="wrap">
       <a class="home" href="index.html">← Back</a>
+
       <h1>Hand Crank Power Generator: Simpleng Imbensyon na May Malaking Gamit</h1>
+
       <p>Bilang bahagi ng aming pag-aaral, kinakailangan naming bumuo ng isang proyekto na magpapalawak ng aming pag-iisip at kakayahan sa paglikha. Mula rito ay napili namin ang Hand Crank Power Generator, isang device na maaaring mag-charge ng cellphone gamit ang pwersa ng kamay. Layunin nitong patunayan ang aming challenge question at ipakita na kaya naming makalikha ng isang functional na prototype.</p>
 
       <p>Isa sa mga dahilan kung bakit namin ito napili ay ang pagtaas ng presyo ng kuryente sa Pilipinas. Dahil dito, marami ang naghahanap ng paraan upang makatipid, kaya naisip naming gumawa ng alternatibong mapagkukunan ng kuryente na hindi umaasa sa traditional electricity supply. Bukod pa rito, madalas ding magkaroon ng mga blackout, lalo na tuwing may bagyo, kaya mahalagang magkaroon ng kagamitan na maaaring magamit sa emergency situations.</p>
@@ -39,61 +155,54 @@
       <p>Pinagplanuhan namin nang mabuti ang proyekto-mula sa pagpili ng tamang materyales hanggang sa aktwal na paggawa nito-upang masigurong ito ay gumagana at kapaki-pakinabang. Sa kabuuan, ang Hand Crank Power Generator ay simple ngunit makabuluhang paraan upang makatulong sa pagtitipid, pagiging handa, at pagpapakita ng malikhaing solusyon sa mga tunay na problema sa ating komunidad.</p>
 
       <div class="row">
-  <div class=column>
-<img src="nagal-feet-pics/PBLB.jpg" alt="Project Image" style="border: 3px solid #cfeeff; border-radius: 10px; max-width: 100%;">
-  </div>
+        <div class="column">
+          <img src="nagal-feet-pics/PBLB.jpg" alt="Hand crank generator prototype">
+        </div>
+        <div class="column">
+          <img src="nagal-feet-pics/penguin.jpg" alt="Generator wiring and connections">
+        </div>
+        <div class="column">
+          <img src="nagal-feet-pics/raccoon.jpg" alt="Battery and inverter setup">
+        </div>
+        <div class="column">
+          <img src="nagal-feet-pics/hampter.jpg" alt="Gearbox and mechanical parts">
+        </div>
+      </div>
 
-  <div class="column">
-    <img src="nagal-feet-pics/penguin.jpg" alt="Project Image" style="border: 3px solid #cfeeff; border-radius: 10px; max-width: 100%;">
-  </div>
+      <p>In every household and school, electricity is something we count on every day. But what happens during a sudden power outage, especially when food needs to stay frozen, phones need charging, or lights are needed for safety? High electricity costs and unexpected blackouts continue to impact many communities. This is why our group created a simple yet powerful solution: the Hand Crank Power Generator.</p>
 
-  <div class="column">
-    <img src="nagal-feet-pics/raccoon.jpg" alt="Project Image" style="border: 3px solid #cfeeff; border-radius: 10px; max-width: 100%;">
-  </div>
+      <p>Many students and families face challenges when the electricity goes out. Food spoils quickly when refrigerators stop working, and access to power becomes limited. In TLE, we learned how important it is to preserve food properly, especially by freezing it, to prevent waste. Without electricity, this is nearly impossible. At the same time, rising electricity prices make it harder for families to manage their expenses. Communities need an affordable, portable, and reliable energy source to help them save money and stay prepared during emergencies.</p> 
 
-  <div class="column">
-    <img src="nagal-feet-pics/hampter.jpg" alt="Project Image" style="border: 3px solid #cfeeff; border-radius: 10px; max-width: 100%;">
-  </div>
-</div>
-     <p>In every household and school, electricity is something we count on every day. But what happens during a sudden power outage, especially when food needs to stay frozen, phones need charging, or lights are needed for safety? High electricity costs and unexpected blackouts continue to impact many communities. This is why our group created a simple yet powerful solution: the Hand Crank Power Generator.</p>
-     <p>Many students and families face challenges when the electricity goes out. Food spoils quickly when refrigerators stop working, and access to power becomes limited. In TLE, we learned how important it is to preserve food properly, especially by freezing it, to prevent waste. Without electricity, this is nearly impossible. At the same time, rising electricity prices make it harder for families to manage their expenses. Communities need an affordable, portable, and reliable energy source to help them save money and stay prepared during emergencies.</p> 
-     <p>Our Hand Crank Power Generator offers a practical solution to these issues. By using simple mechanical motion, the device generates enough electricity to power small appliances, charge devices, and help with temporary food preservation during power outages. This makes it not just a useful TLE tool but also an affordable energy-saving device. The generator illustrates how globalization allows for the exchange of modern ideas and green technologies that help communities reduce electricity use and become more energy-efficient.</p>
-     <p>Imagine this: a strong typhoon hits, and the electricity in your community suddenly goes out. While others struggle to keep their food from spoiling, your family uses the hand crank generator to power a small cooler or charge essential devices. Instead of panicking, you stay prepared.</p>
-     <p>Now think about the long-term benefits. If more communities used green and low-cost technologies like this, families could save money on electricity, students could learn practical survival skills, and local areas could rely less on expensive power sources. This small device is a step toward self-reliance and sustainable living.</p>
-     <p>You can help turn this vision into reality. Support and promote our Hand Crank Power Generator as an affordable, eco-friendly, and student-made solution to high electricity costs. Learn how it works, share it with others, and discover how simple mechanical energy can meet essential needs. By choosing innovative and sustainable options, we can empower communities, reduce waste, and prepare for emergencies, one crank at a time.</p>
-    
-     <h2 style="font-family:Orbitron, sans-serif; color:#9be7ff; margin-top:24px;">Materials that were used</h2>
+      <p>Our Hand Crank Power Generator offers a practical solution to these issues. By using simple mechanical motion, the device generates enough electricity to power small appliances, charge devices, and help with temporary food preservation during power outages. This makes it not just a useful TLE tool but also an affordable energy-saving device. The generator illustrates how globalization allows for the exchange of modern ideas and green technologies that help communities reduce electricity use and become more energy-efficient.</p>
+
+      <p>Imagine this: a strong typhoon hits, and the electricity in your community suddenly goes out. While others struggle to keep their food from spoiling, your family uses the hand crank generator to power a small cooler or charge essential devices. Instead of panicking, you stay prepared.</p>
+
+      <p>Now think about the long-term benefits. If more communities used green and low-cost technologies like this, families could save money on electricity, students could learn practical survival skills, and local areas could rely less on expensive power sources. This small device is a step toward self-reliance and sustainable living.</p>
+
+      <p>You can help turn this vision into reality. Support and promote our Hand Crank Power Generator as an affordable, eco-friendly, and student-made solution to high electricity costs. Learn how it works, share it with others, and discover how simple mechanical energy can meet essential needs. By choosing innovative and sustainable options, we can empower communities, reduce waste, and prepare for emergencies, one crank at a time.</p>
+
+      <h2>Materials that were used</h2>
 
       <ul>
         <li><strong>Battery</strong> – The battery is what supplies power to the whole project. It’s our main source of electricity.</li>
-
         <li><strong>Inverter</strong> – The inverter converts the battery’s DC power into AC power, especially if we need to run something that doesn’t work on DC.</li>
-
         <li><strong>Gear Box</strong> – The gearbox helps control the motor’s movement by adjusting the speed and force, making the rotation slower but stronger.</li>
-
         <li><strong>Wires & Cables</strong> – These are used to connect everything together and let the electricity flow from one part to another.</li>
-
         <li><strong>Electrical Tape</strong> – Electrical tape is for covering exposed wires and keeping connections safe and secure.</li>
-
         <li><strong>Popsicle Sticks</strong> – These sticks are used as part of the structure or frame of the project since they’re light and easy to work with.</li>
-
         <li><strong>Glue Gun & Glue Sticks</strong> – The glue gun is for attaching or fixing pieces together quickly, especially the popsicle sticks or other small parts.</li>
-
         <li><strong>Tools (cutter, pliers)</strong> – The cutter is for trimming materials or stripping wires, while the pliers help in holding, bending, or cutting wires.</li>
       </ul>
-      
-   </div>
-  
-     <!-- Footer -->
-    <footer style="font-size:13px; color:#9fb6d1; text-align:center; margin-top:20px; font-family: 'Orbitron', sans-serif;">
-      © <span id="year">2025</span> hand crank power generator
-    </footer>
 
-    <!-- Auto-update year like index.html -->
+      <footer>© <span id="year">2025</span> hand crank power generator</footer>
+    </div>
+
+    <!-- Optional floating back button -->
+    <!-- <a href="index.html" class="side-toggle">Back</a> -->
+    
     <script>
+      // Auto-update year
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    
   </body>
 </html>
-
