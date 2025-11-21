@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"  style="background-image: url('nagal-feet-pics/RPG.jpg');">
-<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Hand crank power generator — student project: how it works, components, and uses." />
     <title>Mechanical-Powered Stepper</title>
      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
-
     <style>
       /* Page background and overlay */
       html,body{height:100%;margin:0;padding:0;background:url('nagal-feet-pics/RPG.jpg') center/cover no-repeat fixed;font-family:Arial, Helvetica, sans-serif;color:#e6f0ff;position:relative}
@@ -20,170 +14,6 @@
       /* 🔊 NEW: CIRCULAR MUTE BUTTON */
       /* ---------------------------- */
       #soundToggle {
-      /* -------------------------
-         Theme variables & reset
-         ------------------------- */
-      :root{
-        --bg-img: url('nagal-feet-pics/RPG.jpg');
-        --accent: #9be7ff;
-        --accent-strong: #19a6ff;
-        --panel-bg: rgba(4,8,12,0.55);
-        --panel-bg-2: rgba(18,24,30,0.55);
-        --text: #dbeeff;
-        --muted-text: #9fb6d1;
-        --card-border: rgba(120,160,255,0.06);
-        --glass: rgba(0,0,0,0.55);
-      }
-
-      /* Base */
-      html,body{height:100%;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;background:#071428;color:var(--text)}
-      /* Background image + subtle overlay (put only once, not duplicated inline) */
-      body{
-        background-image: var(--bg-img);
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-      }
-      body::before{
-        content:'';
-        position:fixed;
-        inset:0;
-        background:linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.48));
-        pointer-events:none;
-        z-index:0;
-      }
-
-      /* -------------------------
-         Layout & main panel
-         ------------------------- */
-      .page{
-        max-width:980px;
-        margin:34px auto;
-        padding:20px;
-        background: linear-gradient(180deg, rgba(4,8,12,0.55), rgba(18,24,30,0.55));
-        border-radius:12px;
-        border:1px solid var(--card-border);
-        position:relative;
-        z-index:1;
-        color:var(--text);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        backdrop-filter: blur(2px);
-      }
-
-      /* HUD/header */
-      .hud{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:8px 12px;
-        background:rgba(0,0,0,0.14);
-        border:1px solid rgba(255,255,255,0.04);
-        border-radius:8px;
-        margin-bottom:14px;
-        font-family:'Orbitron',sans-serif;
-        color:var(--accent);
-        text-shadow:0 0 4px rgba(0,200,255,0.12);
-        font-size:13px;
-      }
-
-      header{text-align:center;padding-bottom:6px}
-      .title{
-        font-family:'Press Start 2P',monospace;
-        font-size:20px;
-        color:#8efcff;
-        text-shadow:0 2px 14px rgba(0,230,255,0.08),0 0 6px rgba(0,120,255,0.06);
-        margin:6px 0;
-      }
-
-      /* Section panels */
-      .section{
-        margin-top:16px;
-        padding:14px;
-        border-radius:8px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
-        border:1px solid rgba(255,255,255,0.03);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.35) inset;
-      }
-      h2{
-        font-family:'Orbitron',sans-serif;
-        font-size:16px;
-        color:#a6f0ff;
-        margin:6px 0 10px 0;
-        text-align:left;
-      }
-
-      /* Readability improvements */
-      .content {
-        max-width:760px;  /* comfortable reading width */
-        margin: 0 auto;
-      }
-
-      p{
-        line-height:1.75;            /* increased breathing room */
-        margin:10px 0 18px 0;
-        color:#d0e9ff;               /* softer color */
-        font-size:16.8px;           /* slightly larger */
-        text-shadow: 0 0 3px rgba(0,0,0,0.45); /* subtle for contrast */
-        text-align:left;
-      }
-
-      ul{
-        line-height:1.7;
-        margin:6px 0 16px 0;
-        padding-left:20px;
-        color:#d0e9ff;
-      }
-      li{margin:8px 0}
-
-      /* Buttons / CTAs */
-      .controls{display:flex;gap:10px;justify-content:center;margin-top:14px}
-      .btn{
-        background: linear-gradient(180deg,var(--accent-strong),#0064b3);
-        color:#fff;
-        border:0;
-        padding:10px 18px;
-        border-radius:8px;
-        font-weight:700;
-        box-shadow:0 6px 20px rgba(0,90,160,0.28);
-        cursor:pointer;
-        font-family:'Orbitron',sans-serif;
-        transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
-      }
-      .btn:active{ transform: translateY(1px) }
-      .btn.secondary{
-        background: linear-gradient(180deg,#222,#111);
-        color:var(--accent);
-        border:1px solid rgba(120,200,255,0.08);
-        box-shadow:none;
-      }
-
-      /* Floating side button */
-      .side-toggle{
-        position:fixed;
-        right:12px;
-        bottom:12px;
-        z-index:2200;
-        background:linear-gradient(180deg,#0ea5ff,#0070b3);
-        color:#fff;
-        border-radius:28px;
-        padding:10px 16px;
-        box-shadow:0 8px 24px rgba(0,0,0,0.5);
-        cursor:pointer;
-        border:0;
-        font-family:'Orbitron',sans-serif;
-        text-decoration:none;
-        transition: transform .16s ease, box-shadow .16s ease;
-      }
-      .side-toggle:hover{ transform: translateY(-3px) }
-
-      /* Side panel (kept but not used in this version) */
-      .side-panel{position:fixed;right:0;top:0;height:100%;width:340px;max-width:92vw;background:linear-gradient(180deg,rgba(6,10,14,0.96),rgba(20,28,36,0.98));box-shadow:-12px 0 40px rgba(0,0,0,0.6);transform:translateX(100%);transition:transform .28s ease;z-index:2199;padding:18px;overflow:auto;border-left:1px solid var(--card-border)}
-      .side-panel.open{transform:translateX(0)}
-      .side-panel .close{position:absolute;left:10px;top:10px;background:transparent;border:0;color:var(--accent);font-size:16px;cursor:pointer}
-      .side-panel h3{font-family:'Orbitron',sans-serif;color:var(--accent);margin-top:28px}
-
-      /* Circular sound toggle button */
-      #soundToggle{
         position: fixed;
         top: 15px;
         left: 15px;
@@ -192,10 +22,8 @@
         border-radius: 50%;
         border: 2px solid rgba(255,255,255,0.35);
         background: rgba(0,0,0,0.55);
-        background: var(--glass);
         backdrop-filter: blur(6px);
         color: #9be7ff;
-        color: var(--accent);
         font-size: 22px;
         cursor: pointer;
         z-index: 5000;
@@ -203,11 +31,6 @@
         align-items: center;
         justify-content: center;
         transition: 0.2s ease;
-        z-index:5000;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        transition: transform .14s ease, background .14s;
       }
       #soundToggle:hover {
         background: rgba(0,0,0,0.75);
@@ -229,13 +52,10 @@
       .section{margin-top:16px;padding:14px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.08));border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(0,0,0,0.45) inset}
       h2{font-family:'Orbitron',sans-serif;font-size:16px;color:#a6f0ff;margin:6px 0 10px 0;text-align:left}
       p{line-height:1.6;margin:8px 0 12px 0;color:#d8eefb;text-align:left}
-      #soundToggle:hover{ transform: scale(1.08); background: rgba(0,0,0,0.75) }
-      #soundToggle[aria-pressed="true"]{ box-shadow: 0 6px 18px rgba(0,150,255,0.14) }
 
       /* Lists */
       ul{max-width:820px;margin:6px auto 12px auto;text-align:left;padding-left:20px;color:#cfeeff}
       li{margin:6px 0}
-      footer{font-size:13px;color:var(--muted-text);text-align:center;margin-top:20px}
 
       /* CTA / controls */
       .controls{display:flex;gap:10px;justify-content:center;margin-top:14px}
@@ -249,18 +69,9 @@
       .side-panel.open{transform:translateX(0)}
       .side-panel .close{position:absolute;left:10px;top:10px;background:transparent;border:0;color:#9be7ff;font-size:16px;cursor:pointer}
       .side-panel h3{font-family:'Orbitron',sans-serif;color:#9be7ff;margin-top:28px}
-      /* Accessibility: focus styles */
-      button:focus, a:focus{ outline: 3px solid rgba(155,231,255,0.18); outline-offset: 3px; }
 
       footer{font-size:13px;color:#9fb6d1;text-align:center;margin-top:20px}
       @media (max-width:720px){.title{font-size:14px;padding:6px}p{margin:10px} .page{margin:16px;padding:14px}}
-      /* Responsive */
-      @media (max-width:720px){
-        .title{font-size:14px;padding:6px}
-        p{margin:10px;font-size:16px}
-        .page{margin:16px;padding:14px}
-        #soundToggle{width:48px;height:48px;font-size:18px;top:10px;left:10px}
-      }
     </style>
   </head>
 
@@ -268,24 +79,25 @@
   <!-- 🎵 Background Music -->
     <audio autoplay loop muted id="bgMusic">
       <source src="background-music.mp3" type="audio/mpeg">
-    <!-- Background music: start muted for autoplay compatibility -->
-    <audio id="bgMusic" loop muted playsinline>
-      <source src="background-music.mp3" type="audio/mpeg" />
-      <!-- fallback note -->
     </audio>
 
     <!-- 🔊 NEW CIRCULAR BUTTON -->
     <button id="soundToggle">🔇</button>
 
     <script>
+
       const music = document.getElementById("bgMusic");
       const btn = document.getElementById("soundToggle");
 
       btn.addEventListener("click", function () {
         music.muted = !music.muted;
         btn.textContent = music.muted ? "🔇" : "🔊";
+
       });
     </script>
+
+            
+
         <div class="page">
         <div class="hud">
           <div class="left" data-en="LEVEL 01 • XP 012/100" data-ja="レベル 01 • ケイケンチ 012/100">LEVEL 01 • XP 012/100</div>
@@ -301,8 +113,6 @@
         <h2 data-en="How it works" data-ja="シクミ">How it works</h2>
         <p data-en="When you turn the crank on a hand crank power generator, your mechanical energy is transferred through a shaft and gearing to a small dynamo or DC generator. The rotating rotor moves inside the stator's coils which induces an electrical current. Many designs include a rectifier or regulator so the output can reliably power small devices or charge a battery." data-ja="テマワシハツデンキノクランクヲマワスと、アナタノキカイテキエネルギーヲシャフトトギアヲトオシテコガタノダイナモヤチョクリュウハツデンキニデンタツサレマス。カイテンスルローターガステーターノコイルナイヲウゴキ、デンリュウガユウドウサレマス。オオクノセッケイデハ、シュツリョクヲアンテイスルタメニレクティファイアヤレギュレーターガフクマレテイマス。">When you turn the crank on a hand crank power generator, your mechanical energy is transferred through a shaft and gearing to a small dynamo or DC generator. The rotating rotor moves inside the stator's coils which induces an electrical current. Many designs include a rectifier or regulator so the output can reliably power small devices or charge a battery.</p>
       </div>
-    <!-- Sound toggle (aria, keyboard accessible) -->
-    <button id="soundToggle" aria-pressed="false" aria-label="Toggle background music">🔇</button>
 
       <div class="section">
         <h2 data-en="Main components" data-ja="シュナブヒン">Main components</h2>
@@ -313,69 +123,27 @@
           <li data-en="Rectifier / Regulator (optional) — converts alternating signals to usable DC and stabilizes output." data-ja="レクティファイア／レギュレーター（オプション） — コウリュウヲチョクリュウニヘンカンシ、シュツリョクヲアンテイカ"><strong>Rectifier / Regulator</strong> (optional) — converts alternating signals to usable DC and stabilizes output.</li>
           <li data-en="Output Ports / Terminals — where you connect devices, batteries, or small loads (sometimes a USB port)." data-ja="アウトプットポート／ターミナル — デバイス、バッテリー、コガタフカヲセツゾクスルバショ"><strong>Output Ports / Terminals</strong> — where you connect devices, batteries, or small loads (sometimes a USB port).</li>
         </ul>
-    <div class="page" role="main">
-      <div class="hud" role="status" aria-live="polite">
-        <div class="left" data-en="LEVEL 01 • XP 012/100" data-ja="レベル 01 • ケイケンチ 012/100">LEVEL 01 • XP 012/100</div>
-        <div class="right" data-en="STATUS: ONLINE • RANK: NOVICE" data-ja="ジョウタイ: オンライン • ランク: ショキュウ">STATUS: ONLINE • RANK: NOVICE</div>
       </div>
 
       <div class="section">
         <h2 data-en="Useful for projects" data-ja="プロジェクトに役立つ点">Useful for projects</h2>
         <p data-en="Hand crank generators are ideal for emergency power, off-grid charging, and hands-on learning. They can power small LED lights, charge a phone in a pinch (depending on design), run sensors, or serve as demonstration tools in classrooms to teach energy conversion and renewable concepts." data-ja="テマワシハツデンキハ、キンキュウデンゲン、オフグリッドジュウデン、ジッセンテキナガクシュウニサイテキデス。コガタLEDライトノテン灯、ケイサクニヨッテハケイタイデンワノジュウデン、センサー駆動、キョウシツデノエネルギーヘンカンヤサイセイカノウエネルギーノデモニツカエマス。">Hand crank generators are ideal for emergency power, off-grid charging, and hands-on learning. They can power small LED lights, charge a phone in a pinch (depending on design), run sensors, or serve as demonstration tools in classrooms to teach energy conversion and renewable concepts.</p>
       </div>
-      <header>
-        <div class="title" data-en="Your Potential with the Hand Crank Power Generator" data-ja="テマワシハツデンキノカノウセイ">Your Potential with the Hand Crank Power Generator</div>
-      </header>
 
       
-      <div class="content">
-        <p data-en="A hand crank power generator is a small device that creates electricity by using human mechanical energy. When you turn the crank, the internal mechanism, which is either a dynamo or a DC generator, turns that motion into electrical energy. This demonstrates how people can generate power without fuel or electricity. It is useful for emergencies and for learning about renewable energy." data-ja="手回し発電機は、人間の機械的エネルギーを利用して電気を作り出す小型装置です。クランクを回すと、内部のダイナモや直流発電機がその動きを電気エネルギーに変換します。これは、燃料や電気なしで人が電力を生み出せることを示しています。緊急時や再生可能エネルギーの学習に役立ちます。">
-          A hand crank power generator is a small device that creates electricity by using human mechanical energy. When you turn the crank, the internal mechanism, which is either a dynamo or a DC generator, turns that motion into electrical energy. This demonstrates how people can generate power without fuel or electricity. It is useful for emergencies and for learning about renewable energy.
-        </p>
 
-        <div class="section">
-          <h2 data-en="How it works" data-ja="シクミ">How it works</h2>
-          <p data-en="When you turn the crank on a hand crank power generator, your mechanical energy is transferred through a shaft and gearing to a small dynamo or DC generator. The rotating rotor moves inside the stator's coils which induces an electrical current. Many designs include a rectifier or regulator so the output can reliably power small devices or charge a battery." data-ja="テマワシハツデンキノクランクヲマワスと、アナタノキカイテキエネルギーヲシャフトトギアヲトオシテコガタノダイナモヤチョクリュウハツデンキニデンタツサレマス。カイテンスルローターガステーターノコイルナイヲウゴキ、デンリュウガユウドウサレマス。オオクノセッケイデハ、シュツリョクヲアンテイスルタメニレクティファイアヤレギュレーターガフクマレテイマス。">
-            When you turn the crank on a hand crank power generator, your mechanical energy is transferred through a shaft and gearing to a small dynamo or DC generator. The rotating rotor moves inside the stator's coils which induces an electrical current. Many designs include a rectifier or regulator so the output can reliably power small devices or charge a battery.
-          </p>
-        </div>
 
-        <div class="section">
-          <h2 data-en="Main components" data-ja="シュナブヒン">Main components</h2>
-          <ul>
-            <li data-en="Crank & Handle — the user interface that provides manual input energy." data-ja="クランク＆ハンドル — ユーザーインターフェース、テドウニュウリョクヲテイキョウ"><strong>Crank & Handle</strong> — the user interface that provides manual input energy.</li>
-            <li data-en="Gearing / Shaft — transfers and, if needed, increases rotation speed to the generator." data-ja="ギアリング／シャフト — カイテンソクドヲデンセツニデンセツシ、ヒツヨウニオウジテゾウソク"><strong>Gearing / Shaft</strong> — transfers and, if needed, increases rotation speed to the generator.</li>
-            <li data-en="Dynamo / DC Generator — rotor and stator assembly that converts motion into electricity." data-ja="ダイナモ／DCジェネレーター — ローターとステーターのクミアワセでドウキをデンキにヘンカン"><strong>Dynamo / DC Generator</strong> — rotor and stator assembly that converts motion into electricity.</li>
-            <li data-en="Rectifier / Regulator (optional) — converts alternating signals to usable DC and stabilizes output." data-ja="レクティファイア／レギュレーター（オプション） — コウリュウヲチョクリュウニヘンカンシ、シュツリョクヲアンテイカ"><strong>Rectifier / Regulator</strong> (optional) — converts alternating signals to usable DC and stabilizes output.</li>
-            <li data-en="Output Ports / Terminals — where you connect devices, batteries, or small loads (sometimes a USB port)." data-ja="アウトプットポート／ターミナル — デバイス、バッテリー、コガタフカヲセツゾクスルバショ"><strong>Output Ports / Terminals</strong> — where you connect devices, batteries, or small loads (sometimes a USB port).</li>
-          </ul>
-        </div>
 
-        <div class="section">
-          <h2 data-en="Useful for projects" data-ja="プロジェクトに役立つ点">Useful for projects</h2>
-          <p data-en="Hand crank generators are ideal for emergency power, off-grid charging, and hands-on learning. They can power small LED lights, charge a phone in a pinch (depending on design), run sensors, or serve as demonstration tools in classrooms to teach energy conversion and renewable concepts." data-ja="テマワシハツデンキハ、キンキュウデンゲン、オフグリッドジュウデン、ジッセンテキナガクシュウニサイテキデス。コガタLEDライトノテン灯、ケイサクニヨッテハケイタイデンワノジュウデン、センサー駆動、キョウシツデノエネルギーヘンカンヤサイセイカノウエネルギーノデモニツカエマス。">
-            Hand crank generators are ideal for emergency power, off-grid charging, and hands-on learning. They can power small LED lights, charge a phone in a pinch (depending on design), run sensors, or serve as demonstration tools in classrooms to teach energy conversion and renewable concepts.
-          </p>
-        </div>
 
         <footer>© <span id="year">2025</span>  hand crank power generator</footer>
-        <footer>
-          © <span id="year">2025</span> hand crank power generator
-        </footer>
-      </div>
     </div>
 
-    <!-- Controls -->
     <div style="text-align:center;margin-top:18px">
       <button id="show-ja" class="btn" data-en="Show Japanese Translation" data-ja="ニホンゴヒョウジ" style="display:inline-block;margin:0 8px;">Show Japanese Translation</button>
       <button id="show-en" class="btn" data-en="Show English" style="display:none;margin:0 8px;">Show English</button>
-      <button id="show-ja" class="btn" data-en="Show Japanese Translation" data-ja="ニホンゴヒョウジ" aria-controls="content">Show Japanese Translation</button>
-      <button id="show-en" class="btn secondary" data-en="Show English" style="display:none" aria-controls="content">Show English</button>
     </div>
-
     <!-- Side button opens separate page -->
     <a id="side-toggle" class="side-toggle small" href="Side-Area.html" title="Open side page">Next</a>
-    <a id="side-toggle" class="side-toggle" href="Side-Area.html" title="Open side page" aria-label="Open side page">Next</a>
 
     <script>
     // store original HTML for restoration for any element that has data-ja
@@ -409,141 +177,6 @@
     });
 
     // Side button now opens a separate page; no panel JS required
-    </script>
-  </body>
-</html>
-      /* ---------------------------
-         Robust audio handling + resume
-         --------------------------- */
-      (function(){
-        const audio = document.getElementById('bgMusic');
-        const btn = document.getElementById('soundToggle');
-        const STORAGE_KEY = 'hc_bg_audio'; // store muted & time
-
-        // Try to restore muted state and currentTime
-        try {
-          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-          if (saved.currentTime) audio.currentTime = saved.currentTime;
-          if (typeof saved.muted === 'boolean') audio.muted = saved.muted;
-        } catch(e){ /* ignore */ }
-
-        // Start playback in a safe way (some browsers require user gesture for unmuted play)
-        function startIfNeeded(){
-          // play() returns a promise — handle gracefully
-          audio.play().catch(()=>{ /* autoplay blocked */ });
-        }
-        startIfNeeded();
-
-        // Update button UI
-        function updateBtn(){
-          const isMuted = audio.muted || audio.volume === 0;
-          btn.textContent = isMuted ? '🔇' : '🔊';
-          btn.setAttribute('aria-pressed', String(!isMuted));
-        }
-        updateBtn();
-
-        // Toggle behaviour: prefer mute/unmute rather than pause so ambient loop continues
-        btn.addEventListener('click', () => {
-          // If currently muted, try to unmute and ensure play promise resolves
-          if (audio.muted){
-            audio.muted = false;
-            audio.play().catch(()=> {
-              // if play blocked, re-mute to avoid silent issues
-              audio.muted = true;
-            });
-          } else {
-            audio.muted = true;
-          }
-          updateBtn();
-          // persist
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({ muted: audio.muted, currentTime: audio.currentTime }));
-          } catch(e){}
-        });
-
-        // periodically save playback time so other pages can resume near current position
-        setInterval(() => {
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({ muted: audio.muted, currentTime: audio.currentTime }));
-          } catch(e){}
-        }, 3000);
-
-        // When unloading, store last position
-        window.addEventListener('beforeunload', () => {
-          try{
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({ muted: audio.muted, currentTime: audio.currentTime }));
-          }catch(e){}
-        });
-      })();
-
-      /* ---------------------------
-         Language toggle (robust)
-         --------------------------- */
-      (function(){
-        const btnJa = document.getElementById('show-ja');
-        const btnEn = document.getElementById('show-en');
-        const STORAGE_LANG = 'hc_lang_pref';
-
-        // Helper: set content for nodes that have data-ja/data-en
-        function setLanguage(lang){
-          document.querySelectorAll('[data-en]').forEach(el => {
-            // prefer to use attribute matching; attributes store small snippets (safe)
-            const val = el.getAttribute(lang === 'ja' ? 'data-ja' : 'data-en');
-            if (val !== null) {
-              // Some elements contain inline tags (e.g., <strong> inside li). In those cases
-              // the data attributes usually contain plain text; to avoid losing markup,
-              // replace only text nodes when possible. Simpler and safe: set textContent
-              // for elements that have no child element nodes; else set innerHTML.
-              const hasChildElements = Array.from(el.childNodes).some(n => n.nodeType === Node.ELEMENT_NODE);
-              try {
-                if (!hasChildElements) el.textContent = val;
-                else el.innerHTML = val;
-              } catch(e){
-                el.textContent = val;
-              }
-            }
-          });
-
-          // Toggle buttons
-          if (lang === 'ja') {
-            btnJa.style.display = 'none';
-            btnEn.style.display = 'inline-block';
-          } else {
-            btnJa.style.display = 'inline-block';
-            btnEn.style.display = 'none';
-          }
-
-          // persist selection
-          try { localStorage.setItem(STORAGE_LANG, lang); } catch(e){}
-        }
-
-        // initialize from storage (default en)
-        try {
-          const saved = localStorage.getItem(STORAGE_LANG) || 'en';
-          if (saved === 'ja') setLanguage('ja');
-        } catch(e){}
-
-        btnJa.addEventListener('click', () => setLanguage('ja'));
-        btnEn.addEventListener('click', () => setLanguage('en'));
-      })();
-
-      /* ---------------------------
-         Small accessibility helpers
-         --------------------------- */
-      (function(){
-        // auto update year
-        const y = document.getElementById('year');
-        if (y) y.textContent = new Date().getFullYear();
-
-        // keyboard support for link that opens Side-Area
-        const side = document.getElementById('side-toggle');
-        side.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            side.click();
-          }
-        });
-      })();
     </script>
   </body>
 </html>
